@@ -1,5 +1,20 @@
 # rulec
 
+> **rulec now lives in [ritsu](https://github.com/i2y/ritsu)**, as one of its seven languages, and
+> its documentation in English and Japanese is at <https://i2y.github.io/ritsu/rulec/>. This
+> repository keeps rulec's history and its releases up to 0.22.1; from 0.23.0 the releases are
+> ritsu's, and the `rulec` command comes with them:
+>
+> ```console
+> $ brew install i2y/tap/ritsu
+> $ cargo install --git https://github.com/i2y/ritsu --locked ritsu
+> ```
+>
+> In CI, `uses: i2y/ritsu@v0.23.0`. If you installed rulec with Homebrew, [moving from rulec's own
+> releases](https://i2y.github.io/ritsu/rulec/install/#from-rulecs-own-releases) says how.
+>
+> rulec は [ritsu](https://github.com/i2y/ritsu) の七つの言語の一つになりました。文書は <https://i2y.github.io/ritsu/rulec/ja/> にあり、0.23.0 からのリリースは ritsu のものです（`rulec` のコマンドも一緒に入ります）。
+
 **Write rules. Prove them. Compile them.**
 
 rulec is a little language for business rules — a shipping tariff, a coupon policy, an
