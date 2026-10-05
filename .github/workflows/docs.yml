@@ -1,22 +1,17 @@
 name: docs
 
-# Build the two Zensical sites and deploy them to GitHub Pages as one
-# artifact on every push to main. Pages must be enabled with "GitHub
-# Actions" as the source in the repository settings.
-#
-#   website/docs/     -> https://i2y.github.io/rulec/
-#   website/docs-ja/  -> https://i2y.github.io/rulec/ja/
-#
-# AGENTS.md and docs/ are in the trigger because website/sync.sh copies
-# them in: a change to the canonical document has to reach the site.
+# rulec's documentation moved to ritsu's site (https://i2y.github.io/ritsu/rulec/), with rulec
+# itself, which is now one of ritsu's languages (https://github.com/i2y/ritsu). This publishes only
+# moved/: one page, as index.html and 404.html, that sends every address of this site to the same
+# page under ritsu's, query and #… kept (the playground's page there sends a reader on to ritsu's
+# playground, which opens the links the old one shared). website/ stays as it was, and is no longer
+# published.
 
 on:
   push:
     branches: [main]
     paths:
-      - "website/**"
-      - "AGENTS.md"
-      - "docs/**"
+      - "moved/**"
       - ".github/workflows/docs.yml"
   workflow_dispatch:
 
@@ -35,33 +30,15 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v10.0.1
-        with:
-          python-version: "3.12"
-
-      # build.sh runs sync.sh first and then builds both languages in the
-      # one order that works: English cleans build/, Japanese then writes
-      # build/ja. No Rust toolchain is needed — docs/codes.md is already
-      # in the repository and a test holds it to `rulec explain --all`.
-      - name: Build both languages
+      - name: Check the pages are there
         run: |
-          cd website
-          uv venv .venv
-          uv pip install --python .venv/bin/python zensical
-          ./build.sh
-
-      - name: Check the tree is complete
-        run: |
-          test -f website/build/index.html
-          test -f website/build/ja/index.html
-          test -f website/build/codes/index.html
-          test -f website/build/ja/codes/index.html
+          test -f moved/index.html
+          test -f moved/404.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: website/build
+          path: moved
 
   deploy:
     needs: build
