@@ -1,19 +1,25 @@
 # rulec
 
-> **rulec now lives in [ritsu](https://github.com/i2y/ritsu)**, as one of its languages, and its
-> documentation in English and Japanese is at <https://i2y.github.io/ritsu/rulec/>. This
-> repository keeps rulec's history and its releases up to 0.22.1; from 0.23.0 the releases are
-> ritsu's, and the `rulec` command comes with them:
+> **This repository is archived. rulec now lives in [ritsu](https://github.com/i2y/ritsu)**, as
+> one of its languages: its source is under
+> [`crates/rulec`](https://github.com/i2y/ritsu/tree/main/crates/rulec), and its documentation in
+> English and Japanese is at <https://i2y.github.io/ritsu/rulec/>. Issues and pull requests go to
+> [i2y/ritsu](https://github.com/i2y/ritsu/issues). This repository keeps rulec's history and its
+> releases up to 0.22.1, read-only; from 0.23.0 the releases are ritsu's, and the `rulec` command
+> comes with them:
 >
 > ```console
 > $ brew install i2y/tap/ritsu
 > $ cargo install --git https://github.com/i2y/ritsu --locked ritsu
 > ```
 >
-> In CI, `uses: i2y/ritsu@v0.23.0`. If you installed rulec with Homebrew, [moving from rulec's own
-> releases](https://i2y.github.io/ritsu/rulec/install/#from-rulecs-own-releases) says how.
+> `cargo install --git https://github.com/i2y/ritsu --locked rulec` installs rulec alone. In CI,
+> `uses: i2y/ritsu@v0.28.0`, or the tag of a later [release](https://github.com/i2y/ritsu/releases).
+> If you installed rulec with Homebrew, [moving from rulec's own
+> releases](https://i2y.github.io/ritsu/rulec/install/#from-rulecs-own-releases) says how. Below is
+> this README as it stood at 0.22.1.
 >
-> rulec は [ritsu](https://github.com/i2y/ritsu) の言語の一つになりました。文書は <https://i2y.github.io/ritsu/rulec/ja/> にあり、0.23.0 からのリリースは ritsu のものです（`rulec` のコマンドも一緒に入ります）。
+> このリポジトリはアーカイブしました。rulec は [ritsu](https://github.com/i2y/ritsu) の言語の一つになり、ソースは [`crates/rulec`](https://github.com/i2y/ritsu/tree/main/crates/rulec) にあります。文書は <https://i2y.github.io/ritsu/rulec/ja/> にあり、0.23.0 からのリリースは ritsu のものです（`rulec` のコマンドも一緒に入ります）。issue と pull request は [i2y/ritsu](https://github.com/i2y/ritsu/issues) にお願いします。ここに残るのは、0.22.1 までの履歴とリリースです。下は 0.22.1 の時点の README です。
 
 **Write rules. Prove them. Compile them.**
 
